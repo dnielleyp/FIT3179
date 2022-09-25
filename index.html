@@ -1,55 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Trying Lab4 Out</title>
+    <meta charset="UTF-8">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+
 </head>
-
 <body>
-    <h1>Heading1</h1>
-    <p>My first paragraph.</p>
-    <h1>Not A Chair</h1>
-    <table border="1" cellpadding="10%">
-    <tr>
-        <th>Not</th>
-        <th>A</th>
-        <th>Chair</th>
-    </tr>
-    <tr>
-        <td>123</td>
-        <td>456</td>
-        <td>789</td>
-    </tr>
-    <tr>
-        <td>Hello</td>
-        <td>How</td>
-        <td>You</td>
-    </tr>
-    </table>
-
-    <h3>Jang WonYoung</h3>
-
-    <img src="wy.jpg" />
-
-    <a href="https://www.monash.edu/"> Link to Monash</a>
-
-    <h2> We are gonna use dividers! :D </h2>
-
-    <div style="color: red;">
-        <h2>This is red colour</h2>
-        <p>This is red colour too! because of the CSS in div!</p>
-    </div>  
-
-    <div style="color: yellow;">
-        <h2>This is yellow colour :O</h2>
-        <p>How she do that? jk it's CSS code lol</p>
+    
+    <h1>Crime Rate Around The World</h1>
+    <div id="choropleth_map_crimerate">
     </div>
 
-    <h2>Text Formatting bc it's <b>cool</b></h2>
-    <p>
-        Hello how are <i>you</i>? <br>
-        <strong>This is super important grrrr</strong>
-    </p>
-
-
+    <script>
+        var spec1 = "js/crimerate_map.vg.json";
+        vegaEmbed('#choropleth_map_crimerate', spec1).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
+    
 </body>
 </html>
