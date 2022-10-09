@@ -29,6 +29,17 @@
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     </script>
+
+    <h1>Ratio of International Students in the Top 10 Universities</h1>
+    <div id="intstud_barchart">
+    </div>
+
+    <script>
+        var spec1 = "js/intstud_ratio.vg.json";
+        vegaEmbed('#intstud_barchart', spec1).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
     
 </body>
 </html>
