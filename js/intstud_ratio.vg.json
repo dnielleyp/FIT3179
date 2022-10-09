@@ -1,0 +1,29 @@
+{
+    "$schema" : "https://vega.github.io/schema/vega-lite/v5.json",
+    "data" : {
+        "url": "data/int_student_ratio.csv"
+    },
+    "width": 400,
+    "height": 600,
+    "mark": "bar",
+    "encoding": {
+        "x": {
+            "field": "University"
+        },
+        "y": {
+            "field": "Quantity",
+            "title": "Number of Students"
+        },
+        "color": {
+            "field": "Student",
+            "type": "nominal",
+            "scale": {
+                "domain": ["International", "Local"],
+                "range": ["#FE828C","F5F5F5"]
+            },
+            "title": "Student Type"
+        }
+    } 
+
+    
+}
