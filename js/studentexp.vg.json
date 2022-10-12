@@ -10,7 +10,7 @@
     "data": {"url":"data/studentexp.csv"},
     "params": [
         {
-            "name": "uni_select",
+            "name": "uni_select", "value": "All Universities",
             "bind": {
                 "input": "select",
                 "options":[
