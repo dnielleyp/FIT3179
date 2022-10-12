@@ -39,7 +39,7 @@
         }
         },
         {
-            "name": "year_select",
+            "name": "year_select", "value":2016,
             "bind": {"input": "range", "min": 2016, "max": 2022, "step": 1, "name": "Year"}
         }    ],
     "transform": [
