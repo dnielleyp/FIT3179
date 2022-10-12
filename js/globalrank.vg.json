@@ -1,0 +1,101 @@
+{   
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width":800,
+    "height": 400,
+    "title": "Global Ranking of the Go8 Members",
+    "data": {
+        "url": "../data/global_rank.csv"
+    },    
+    "params": [
+        {
+        "name": "uni_select",
+        "bind": {
+            "input": "select",
+            "options":[
+                null,
+                "Australian National University",
+                "Monash University",
+                "University of Adelaide",
+                "University of Melbourne",
+                "University of Queensland",
+                "University of Sydney",
+                "University of Western Australia",
+                "UNSW Sydney"
+
+            ],
+            "labels": [
+                "Show All",
+                "Australian National University",
+                "Monash University",
+                "University of Adelaide",
+                "University of Melbourne",
+                "University of Queensland",
+                "University of Sydney",
+                "University of Western Australia",
+                "UNSW Sydney"
+
+            ],
+            "name": "University Selection"
+        }
+        },
+        {
+            "name": "year_select",
+            "bind": {"input": "range", "min": 2016, "max": 2022, "step": 1, "name": "Year"}
+        }    ],
+    "transform": [
+        {"filter": "datum.year > year_select"},
+        {"filter":"uni_select == null || datum.university == uni_select"}],
+    
+    "encoding": {
+        "x": {"field": "year", "type": "nominal"},
+
+        "y": {"field": "rank", "type": "quantitative", 
+        "axis": {"domain": false, "grid": false},
+        "scale": {
+            "domain": [130, 1]
+        }
+        },
+        "color": {
+            "field": "university", "type": "nominal",
+            "scale": {
+                "domain": [
+                    "Australian National University",
+                    "Monash University",
+                    "University of Adelaide",
+                    "University of Melbourne",
+                    "University of Queensland",
+                    "University of Sydney",
+                    "University of Western Australia",
+                    "UNSW Sydney"
+                ],
+                "range": [
+                    "#FFD700",
+                    "#006DAE",
+                    "red",
+                    "#00A36C",
+                    "#800080",
+                    "#ff6600",
+                    "#f25278",
+                    "black"
+                ]
+            }
+        },
+        "tooltip": [
+            {
+                "field": "university", "type": "nominal", "title": "Institution"
+            },
+            {
+                "field": "year", "type": "quantitative", "title": "Year"
+            },
+
+            {
+                "field": "rank", "type": "quantitative", "title": "QS World Rank"
+            }
+            
+            ]
+    },
+    "layer": [
+        {"mark": {"type":"line", "size": 4, "opacity":0.6, "point": true}}
+    ]
+
+}

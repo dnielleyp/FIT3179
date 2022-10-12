@@ -1,0 +1,272 @@
+{
+
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data":{
+        "url":"../data/int_student_ratio.csv"
+    },
+    "title": {
+        "text":"Ratio of International Students to Local Students",
+        "align": "center",
+        "baseline" : "middle",
+        "fontSize": 17
+    },
+    "spacing": 20,
+    "background": null,
+    "params": [
+        {
+        "name": "uni_select",
+        "bind": {
+            "input": "select",
+            "options":[
+                null,
+                "Australian National University",
+                "Monash University",
+                "University of Adelaide",
+                "University of Melbourne",
+                "University of Queensland",
+                "University of Sydney",
+                "University of Western Australia",
+                "UNSW Sydney"
+
+            ],
+            "labels": [
+                "Show All",
+                "Australian National University",
+                "Monash University",
+                "University of Adelaide",
+                "University of Melbourne",
+                "University of Queensland",
+                "University of Sydney",
+                "University of Western Australia",
+                "UNSW Sydney"
+
+            ],
+            "name": "University Selection"
+        }
+        }
+    ],
+    "transform": [
+        {
+            "filter":"uni_select == null || datum.university == uni_select"}],
+    "vconcat":[
+        {
+        "spacing": 40,
+        "hconcat": [
+            {
+                "width": 80,
+                "height": 80,
+                "title": {
+                    "text":["Australian National","University"],
+                    "fontSize": 11},
+                "transform": [{"filter":{"field":"university","equal":"Australian National University"}}],
+                "mark": {"type":"arc", "innerRadius":20},
+                "encoding":{
+                    "theta": {"field": "Student(%)", "type":"quantitative"},
+                    "color": {
+                        "field": "Student", 
+                        "type": "nominal",
+                        "scale": {
+                            "domain": ["International","Local"],
+                            "range": ["#FE828C","#D3D3D3"]
+                        }
+                    },
+            
+            "tooltip": [
+                {"field": "Quantity", "type": "quantitative", "title": "Number of students",
+                    "format": ","}]
+
+                }     
+            },
+            {   
+                "width": 80,
+                "height": 80,
+                "title": {
+                    "text": ["Monash", "University"],
+                    "fontSize": 11
+                },
+                
+                "transform": [{"filter":{"field":"university","equal":"Monash University"}}],
+                "mark": {"type":"arc", "innerRadius":20},
+                "encoding":{
+                    "theta": {"field": "Student(%)", "type":"quantitative"},
+                    "color": {
+                        "field": "Student", 
+                        "type": "nominal",
+                        "scale": {
+                            "domain": ["International","Local"],
+                            "range": ["#FE828C","#D3D3D3"]
+                        }
+                    },
+            
+            "tooltip": [
+                {"field": "Quantity", "type": "quantitative", "title": "Number of students",
+                    "format": ","}]
+
+                }     
+            },
+            {
+                "width": 80,
+                "height": 80,
+                "title": 
+                {"text": ["University of","Adelaide"],
+                "fontSize": 11},
+                "transform": [{"filter":{"field":"university","equal":"University of Adelaide"}}],
+                "mark": {"type":"arc", "innerRadius":20},
+                "encoding":{
+                    "theta": {"field": "Student(%)", "type":"quantitative"},
+                    "color": {
+                        "field": "Student", 
+                        "type": "nominal",
+                        "scale": {
+                            "domain": ["International","Local"],
+                            "range": ["#FE828C","#D3D3D3"]
+                        }
+                    },
+            
+            "tooltip": [
+                {"field": "Quantity", "type": "quantitative", "title": "Number of students",
+                    "format": ","}]
+
+                }     
+            },
+            {
+                "width": 80,
+                "height": 80,
+                "title": {
+                    "text": ["University of", "Melbourne"],
+                    "fontSize": 11},
+                "transform": [{"filter":{"field":"university","equal":"University of Melbourne"}}],
+                "mark": {"type":"arc", "innerRadius":20},
+                "encoding":{
+                    "theta": {"field": "Student(%)", "type":"quantitative"},
+                    "color": {
+                        "field": "Student", 
+                        "type": "nominal",
+                        "scale": {
+                            "domain": ["International","Local"],
+                            "range": ["#FE828C","#D3D3D3"]
+                        }
+                    },
+            
+            "tooltip": [
+                {"field": "Quantity", "type": "quantitative", "title": "Number of students",
+                    "format": ","}]
+
+                }     
+            }]},
+    {   
+        "spacing":40,
+        "hconcat": [    
+            {
+                "width": 80,
+                "height": 80,
+                "title": {
+                    "text": ["University of", "Queensland"],
+                    "fontSize": 11},
+                "transform": [{"filter":{"field":"university","equal":"University of Queensland"}}],
+                "mark": {"type":"arc", "innerRadius":20},
+                "encoding":{
+                    "theta": {"field": "Student(%)", "type":"quantitative"},
+                    "color": {
+                        "field": "Student", 
+                        "type": "nominal",
+                        "scale": {
+                            "domain": ["International","Local"],
+                            "range": ["#FE828C","#D3D3D3"]
+                        }
+                    },
+            
+            "tooltip": [
+                {"field": "Quantity", "type": "quantitative", "title": "Number of students",
+                    "format": ","}]
+
+                }     
+            },
+            {
+            "width": 80,
+            "height": 80,
+            "title": {
+                "text": ["University of", "Sydney"],
+                "fontSize": 11},
+            "transform": [
+                {"filter":{"field":"university","equal":"University of Sydney"}}        
+            ],
+            "mark": {"type":"arc", "innerRadius":20},
+            "encoding":{
+                "theta": {"field": "Student(%)", "type":"quantitative"},
+                "color": {
+                    "field": "Student", 
+                    "type": "nominal",
+                    "scale": {
+                        "domain": ["International","Local"],
+                        "range": ["#FE828C","#D3D3D3"]
+                    }
+                },
+            
+            "tooltip": [
+                {"field": "Quantity", "type": "quantitative", 
+                
+                "title": "'Number of ' +  students", 
+                    "format": ","}]
+
+                }     
+            },
+            {
+                "width": 80,
+                "height": 80,
+                "title": {
+                    "text":["University of","Western Australia"],
+                    "fontSize": 11},
+                "transform": [{"filter":{"field":"university","equal":"University of Western Australia"}}],
+                "mark": {"type":"arc", "innerRadius":20},
+                "encoding":{
+                    "theta": {"field": "Student(%)", "type":"quantitative"},
+                    "color": {
+                        "field": "Student", 
+                        "type": "nominal",
+                        "scale": {
+                            "domain": ["International","Local"],
+                            "range": ["#FE828C","#D3D3D3"]
+                        }
+                    },
+            
+            "tooltip": [
+                {"field": "Quantity", "type": "quantitative", "title": "Number of students",
+                    "format": ","}]
+
+                }     
+            },
+            {
+                "width": 80,
+                "height": 80,
+                "title": {
+                    "text":"UNSW Sydney",
+                    "fontSize": 11},
+                "transform": [{"filter":{"field":"university","equal":"UNSW Sydney"}}],
+                "mark": {"type":"arc", "innerRadius":20},
+                "encoding":{
+                    "theta": {"field": "Student(%)", "type":"quantitative"},
+                    "color": {
+                        "field": "Student", 
+                        "type": "nominal",
+                        "scale": {
+                            "domain": ["International","Local"],
+                            "range": ["#FE828C","#D3D3D3"]
+                        }
+                    },
+            
+            "tooltip": [
+                {"field": "Quantity", "type": "quantitative", "title": "Number of students",
+                    "format": ","}]
+
+                }     
+            }
+          
+    ] }
+    
+     
+    ]
+}
+
+   
+

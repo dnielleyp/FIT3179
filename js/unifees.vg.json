@@ -1,0 +1,96 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "../data/unifees_annual.csv"},
+    "title": {
+      "text": "Annual Fees in Go8 Universities",
+      "align": "center",
+      "baseline" : "middle",
+      "fontSize": 17},
+    "width": 400,
+    "height": 200,
+    "transform": [
+        {
+          "filter": {
+            "field": "type",
+            "oneOf": ["low", "high"]
+          }
+        },
+        {
+            "filter": {
+              "field": "university",
+              "oneOf": [
+                "University of Sydney",
+                "University of Western Australia", 
+                "Monash University", 
+                "Australian National University", 
+                "University of Adelaide", 
+                "University of Melbourne",
+                "UNSW Sydney",
+                "University of Queensland"
+                  
+              ]
+            }
+          }
+  
+      ],
+      "encoding": {
+        "x": {
+          "field": "aud",
+          "type": "quantitative",
+          "title": "Annual Fees (AUD)"
+        },
+        "y": {
+          "field": "university",
+          "type": "nominal",
+          "title": "University",
+          "axis": {
+            "offset": 5,
+            "ticks": false,
+            "minExtent": 70,
+            "domain": false
+          }
+        }
+      },
+      "layer": [
+        
+        {   
+          "mark": {
+            "type":"line",
+            "size": 2},
+          
+          "encoding": {
+            "detail": {
+              "field": "university",
+              "type": "nominal"
+            },
+            "color": {"value": "#db646f"}
+          }
+        },
+        {
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "size": 60
+          },
+          "encoding": {
+            "color": {
+              "field": "type",
+              "type": "nominal",
+              "scale": {
+                "domain": ["low", "high"],
+                "range": ["#e6959c", "#911a24"]
+              },
+              "title": "Type"
+            },
+            
+        "tooltip": [{
+            "field": "aud",
+            "type": "quantitative",
+            "title": "Annual Fees AUD",
+            "format": ","
+        }],
+            "opacity": {"value": 1}
+          }
+        }
+      ]
+    }
