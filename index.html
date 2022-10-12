@@ -15,31 +15,71 @@
 
 </head>
 <body>
-    <div class="pure-g">
-        <div class = "pure-u-4-5">
-            <h1>Crime Rate Around The World</h1>
-            <div id="choropleth_map_crimerate" style="display: block">
-            </div>
-        </div>
+    <div id="intstud_origin" style="display: block">
     </div>
 
-    <script>
-        var spec1 = "js/crimerate_map.vg.json";
-        vegaEmbed('#choropleth_map_crimerate', spec1).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
-    </script>
-
-    <h1>Ratio of International Students in the Top 10 Universities</h1>
-    <div id="intstud_barchart">
+    <div id="intstud_dest", style = "display: block">
     </div>
-
-    <script>
-        var spec1 = "js/intstud_ratio.vg.json";
-        vegaEmbed('#intstud_barchart', spec1).then(function(result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-        }).catch(console.error);
-    </script>
     
+    <div id="intstud_donut">
+    </div>
+    
+
+    <div id="unifees_dot">
+    </div>
+
+    <div id="globalrank_bump">
+    </div>
+
+    <div id="studentexp_radial">
+    </div>
+
+
+
+
+    <script>
+        var spec1 = "js/intstud_origin.vg.json";
+        vegaEmbed('#intstud_origin', spec1).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
+
+    <script>
+        var spec1 = "../js/intstud_dest.vg.json";
+        vegaEmbed('#intstud_dest', spec1).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
+
+    <script>
+        var spec1 = "../js/ratio_intstud.vg.json";
+        vegaEmbed('#intstud_donut', spec1).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
+
+    <script>
+        var spec1 = "../js/unifees.vg.json";
+        vegaEmbed('#unifees_dot', spec1).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
+
+    <script>
+        var spec1 = "../js/globalrank.vg.json";
+        vegaEmbed('#globalrank_bump', spec1).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
+
+<script>
+    var spec1 = "../js/studentexp.vg.json";
+    vegaEmbed('#studentexp_radial', spec1).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+</script>
+    
+
+
 </body>
 </html>
