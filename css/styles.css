@@ -1,21 +1,68 @@
-h1 {
-    font-size: 28px;
-    text-align: center;
-    
+
+#intstud_origin{
+    top: 10px;
+	bottom: 50px; 
+	left: 100px;
+	right: 100px;
+	/*height: 1000px;
+	width: 800px;*/
 }
 
-.pure-g{
-    width : 100%;
-    align-items: center ;
-}
 
-#choropleth_map_crimerate{
-    width: 90%;
-    height: 100%;
+#intstud_dest{
+    top: 10px;
+	bottom: 50px; 
+	left: 100px;
+	right: 100px;
+	/*height: 1000px;
+	width: 800px;*/
 }
-
+/*
 html, body{
-    background-color: rgb(255, 253, 236);
+    background-color: #e7f2c7;
+}
+*/
+
+h1{
+	font-size: 30px;
 }
 
+#intstud_donut{
+	top:20px;
+	bottom: 100px; 
+	left: 50px;
+	right: 100px;
+	padding-bottom: 70px;
+	/*height: 1000px;
+	width: 800px;*/
+}
 
+#globalrank_bump{
+	top:20px;
+	bottom: 100px; 
+	left: 100px;
+	right: 100px;
+	padding-bottom: 70px;
+	/*height: 1000px;
+	width: 800px;*/
+}
+
+#unifees_dot{
+	top:20px;
+	bottom: 100px; 
+	left: 100px;
+	right: 100px;
+	padding-bottom: 70px;
+	/*height: 1000px;
+	width: 800px;*/
+}
+
+#studentexp_radial{
+	top:20px;
+	bottom: 100px; 
+	left: 100px;
+	right: 100px;
+	padding-bottom: 70px;
+	/*height: 1000px;
+	width: 800px;*/
+}
