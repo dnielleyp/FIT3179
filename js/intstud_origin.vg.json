@@ -35,7 +35,7 @@
             "lookup": "properties.NAME", 
             "from": {
                 "data": {
-                    "url": "../data/intstudent_origin.csv"
+                    "url": "data/intstudent_origin.csv"
                 },
                 "key": "country",
                 "fields": ["Enrolments(%)","Enrolments"]
