@@ -7,7 +7,7 @@
         "align": "center",
         "fontSize": 17 
     },
-    "data": {"url":"../data/studentexp.csv"},
+    "data": {"url":"data/studentexp.csv"},
     "params": [
         {
             "name": "uni_select",
