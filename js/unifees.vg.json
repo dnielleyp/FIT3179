@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "data": {"url": "../data/unifees_annual.csv"},
+    "data": {"url": "data/unifees_annual.csv"},
     "title": {
       "text": "Annual Fees in Go8 Universities",
       "align": "center",
