@@ -18,7 +18,7 @@
         },
         {
             "data":{
-                "url":"../data/intstudent_destination.csv"
+                "url":"data/intstudent_destination.csv"
             },
             "mark":{"type":"circle","tooltip": {"content":"data"},"color":"red","opacity":0.4},
             "encoding": {
