@@ -4,7 +4,7 @@
     "height": 400,
     "title": "Global Ranking of the Go8 Members",
     "data": {
-        "url": "../data/global_rank.csv"
+        "url": "data/global_rank.csv"
     },    
     "params": [
         {
