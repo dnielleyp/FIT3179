@@ -1,14 +1,82 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 800,
-    "height": 450,
-    "title": {
-        "text": "Destination of International Students",
-        "align": "center",
-        "baseline" : "middle",
-        "fontSize": 17},
-    "projection": {"type": "equalEarth"},
+    "width": 1050,
+    "height": 500,
+    "config": {
+        "style": {
+          "cell": {
+            "stroke": "transparent"
+          }
+        },
+        "background":null
+      },
+    "params":[
+        {
+            "name": "zoom_level",
+            "value": 200,
+            "bind": {
+            "input": "range",
+            "min": 200,
+            "max": 600,
+            "step": 20,
+            "name": "Zoom: "
+            }
+        },
+        {
+            "name": "center_to",
+            "value": [0, 0],
+            "bind": {
+            "input": "select",
+            "options": [
+            [0,0],
+            [104.2, 35.86],
+            [20.94, 6.61],
+            [15.25, 54.52],
+            [-105.25, 54.52],
+            [-55.49,-8.78],
+            [140.01, -22.73]
+
+            ],
+            "labels": [
+                "Original",
+                "Asia", 
+                "Africa", 
+                "Europe", 
+                "North America",  
+                "South America",
+                "Oceania"
+               ],
+            "name": "Map Centre: "
+            }
+        }
+    ],
+
+    "projection": {
+        "type": "equalEarth",
+        "center": {"expr": "center_to"},
+        "scale": {"expr": "zoom_level"}
+    },
+    "data": {"url": "data/intstudent_destination.csv"},
+    "transform": [
+        {
+            "window":[{"op":"rank", "as": "ranking"}],
+            "sort": [{"field": "test", "order": "descending"}]
+        },
+        {
+            "filter": "datum.ranking <= 5"
+        },
+        {
+            "calculate": "datum['Country']",
+            "as": "text_annotation_raw"
+            },
+            {
+            "calculate": "split(datum.text_annotation_raw,';')",
+            "as": "text_annotation"
+            }   
+    ],
     "layer" : [
+
+
         {
             "data": {
                 "url": "js/ne_110m_admin_0_countries.topojson",
@@ -18,25 +86,79 @@
         },
         {
             "data":{
+                "url":
+                "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
+                
+                "format": {"type":"topojson","feature":"oceans"}},
+            "mark":{"type":"geoshape", "fill": "#D4F3FF"}
+        },
+        {
+            "data":{
                 "url":"data/intstudent_destination.csv"
             },
-            "mark":{"type":"circle","tooltip": {"content":"data"},"color":"red","opacity":0.4},
-            "encoding": {
-                "longitude": {"field":"Longitude", "type": "quantitative"},
-                "latitude": {"field":"Latitude", "type": "quantitative"},
-                
-                "size":{
-                    "field": "Students(%)",
-                    "type": "quantitative",
-                    "title": "% of International Students"
+            "projection": {
+                "type": "equalEarth",
+                "center": {"expr": "center_to"},
+                "scale": {"expr": "zoom_level"}
+            },
+            "mark": {
+                "type":"circle",
+                "stroke": "white"},
+
+            "encoding":{
+                "longitude": {
+                    "field": "Longitude",
+                    "type": "quantitative"
                 },
-                "tooltip": [
+                "latitude":{
+                    "field": "Latitude",
+                    "type": "quantitative"
+                },
+                "color": {"value": "red"},
+                "size": {
+                    "field": "Students",
+                    "type": "quantitative",
+                    "legend":null
+                },
+                "opacity": {"value":0.5},
+                "tooltip":[
                     {"field": "Country", "type": "nominal"},
-                    {"field": "Students(%)", "type": "quantitative"}
-                ]           
+                    {"field": "Students","type":"quantitative"}
+                    
+                    
+                ]
+    
+            }
+        },
+        {"mark": {
+            "type": "square",
+            "color": "white",
+            "size": 15
+            },
+            "encoding": {
+                "text": {"field": "text_annotation"},
+                "latitude": {"field": "Latitude", "type": "quantitative"},
+                "longitude": {"field":"Longitude", "type": "quantitative"}
+
+
+            }
+    },
+        {   
+            "mark": {
+                "type": "text",
+                "align":"right",
+                "dx": -2,
+                "dy": 8,
+                "baseline": "middle",
+                "fontStyle": "italic"
+            },
+            "encoding": {
+                "text": {"field": "text_annotation"},
+                "latitude": {"field": "Latitude", "type": "quantitative"},
+                "longitude": {"field":"Longitude", "type": "quantitative"}
             }
         }
-
+        
 ]
     
 }

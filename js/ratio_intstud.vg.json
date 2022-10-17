@@ -4,12 +4,7 @@
     "data":{
         "url":"data/int_student_ratio.csv"
     },
-    "title": {
-        "text":"Ratio of International Students to Local Students",
-        "align": "center",
-        "baseline" : "middle",
-        "fontSize": 17
-    },
+    "width": 500,
     "spacing": 20,
     "background": null,
     "params": [
@@ -67,14 +62,22 @@
                         "type": "nominal",
                         "scale": {
                             "domain": ["International","Local"],
-                            "range": ["#FE828C","#D3D3D3"]
-                        }
+                            "range": ["#732C46","#E5E5E5"]
+                        },
+                        "legend": {
+                            "orient": "none",
+                            "direction": "horizontal",
+                            "legendX": 120,
+                            "legendY": 230,
+                            "title": null
+                          }
                     },
             
-            "tooltip": [
-                {"field": "Quantity", "type": "quantitative", "title": "Number of students",
-                    "format": ","}]
-
+                    "tooltip": [
+                        {"field": "Quantity", "type": "quantitative", "title": "Number of students",
+                            "format": ","},
+                        {"field": "Student(%)", "type": "quantitative","title": "Percentage of students"}]
+        
                 }     
             },
             {   
@@ -94,13 +97,14 @@
                         "type": "nominal",
                         "scale": {
                             "domain": ["International","Local"],
-                            "range": ["#FE828C","#D3D3D3"]
+                            "range": ["#732C46","#D3D3D3"]
                         }
                     },
             
             "tooltip": [
                 {"field": "Quantity", "type": "quantitative", "title": "Number of students",
-                    "format": ","}]
+                    "format": ","},
+                {"field": "Student(%)", "type": "quantitative","title": "Percentage of students"}]
 
                 }     
             },
@@ -119,15 +123,15 @@
                         "type": "nominal",
                         "scale": {
                             "domain": ["International","Local"],
-                            "range": ["#FE828C","#D3D3D3"]
+                            "range": ["#732C46","#D3D3D3"]
                         }
                     },
             
-            "tooltip": [
-                {"field": "Quantity", "type": "quantitative", "title": "Number of students",
-                    "format": ","}]
-
-                }     
+                    "tooltip": [
+                        {"field": "Quantity", "type": "quantitative", "title": "Number of students",
+                            "format": ","},
+                        {"field": "Student(%)", "type": "quantitative","title": "Percentage of students"}]
+                        }     
             },
             {
                 "width": 80,
@@ -144,15 +148,15 @@
                         "type": "nominal",
                         "scale": {
                             "domain": ["International","Local"],
-                            "range": ["#FE828C","#D3D3D3"]
+                            "range": ["#732C46","#D3D3D3"]
                         }
                     },
             
-            "tooltip": [
-                {"field": "Quantity", "type": "quantitative", "title": "Number of students",
-                    "format": ","}]
-
-                }     
+                    "tooltip": [
+                        {"field": "Quantity", "type": "quantitative", "title": "Number of students",
+                            "format": ","},
+                        {"field": "Student(%)", "type": "quantitative","title": "Percentage of students"}]
+                        }     
             }]},
     {   
         "spacing":40,
@@ -172,14 +176,15 @@
                         "type": "nominal",
                         "scale": {
                             "domain": ["International","Local"],
-                            "range": ["#FE828C","#D3D3D3"]
+                            "range": ["#732C46","#D3D3D3"]
                         }
                     },
             
-            "tooltip": [
-                {"field": "Quantity", "type": "quantitative", "title": "Number of students",
-                    "format": ","}]
-
+                    "tooltip": [
+                        {"field": "Quantity", "type": "quantitative", "title": "Number of students",
+                            "format": ","},
+                        {"field": "Student(%)", "type": "quantitative","title": "Percentage of students"}]
+        
                 }     
             },
             {
@@ -199,16 +204,15 @@
                     "type": "nominal",
                     "scale": {
                         "domain": ["International","Local"],
-                        "range": ["#FE828C","#D3D3D3"]
+                        "range": ["#732C46","#D3D3D3"]
                     }
                 },
             
-            "tooltip": [
-                {"field": "Quantity", "type": "quantitative", 
-                
-                "title": "'Number of ' +  students", 
-                    "format": ","}]
-
+                "tooltip": [
+                    {"field": "Quantity", "type": "quantitative", "title": "Number of students",
+                        "format": ","},
+                    {"field": "Student(%)", "type": "quantitative","title": "Percentage of students"}]
+    
                 }     
             },
             {
@@ -226,15 +230,15 @@
                         "type": "nominal",
                         "scale": {
                             "domain": ["International","Local"],
-                            "range": ["#FE828C","#D3D3D3"]
+                            "range": ["#732C46","#D3D3D3"]
                         }
                     },
             
-            "tooltip": [
-                {"field": "Quantity", "type": "quantitative", "title": "Number of students",
-                    "format": ","}]
-
-                }     
+                    "tooltip": [
+                        {"field": "Quantity", "type": "quantitative", "title": "Number of students",
+                            "format": ","},
+                        {"field": "Student(%)", "type": "quantitative","title": "Percentage of students"}]
+                        }     
             },
             {
                 "width": 80,
@@ -251,15 +255,15 @@
                         "type": "nominal",
                         "scale": {
                             "domain": ["International","Local"],
-                            "range": ["#FE828C","#D3D3D3"]
+                            "range": ["#732C46","#D3D3D3"]
                         }
                     },
             
-            "tooltip": [
-                {"field": "Quantity", "type": "quantitative", "title": "Number of students",
-                    "format": ","}]
-
-                }     
+                    "tooltip": [
+                        {"field": "Quantity", "type": "quantitative", "title": "Number of students",
+                            "format": ","},
+                        {"field": "Student(%)", "type": "quantitative","title": "Percentage of students"}]
+                        }     
             }
           
     ] }

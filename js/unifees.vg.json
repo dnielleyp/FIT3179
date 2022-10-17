@@ -1,13 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {"url": "data/unifees_annual.csv"},
-    "title": {
-      "text": "Annual Fees in Go8 Universities",
-      "align": "center",
-      "baseline" : "middle",
-      "fontSize": 17},
     "width": 400,
     "height": 200,
+    
     "transform": [
         {
           "filter": {
@@ -38,6 +34,7 @@
           "field": "aud",
           "type": "quantitative",
           "title": "Annual Fees (AUD)"
+          
         },
         "y": {
           "field": "university",
@@ -63,7 +60,34 @@
               "field": "university",
               "type": "nominal"
             },
-            "color": {"value": "#db646f"}
+            "color": {
+              "field": "university",
+              "scale":{
+                "domain": [
+                  "Australian National University",
+                  "Monash University",
+                  "University of Adelaide",
+                  "University of Melbourne",
+                  "University of Queensland",
+                  "University of Sydney",
+                  "University of Western Australia",
+                  "UNSW Sydney"
+              ],
+              "range": [
+                  "#FFD700",
+                  "#006DAE",
+                  "red",
+                  "#00A36C",
+                  "#800080",
+                  "#ff6600",
+                  "#f25278",
+                  "black"
+              ]
+            },
+            "legend": null
+            
+            }
+            
           }
         },
         {
@@ -74,22 +98,44 @@
           },
           "encoding": {
             "color": {
-              "field": "type",
-              "type": "nominal",
-              "scale": {
-                "domain": ["low", "high"],
-                "range": ["#e6959c", "#911a24"]
-              },
-              "title": "Type"
-            },
+              "field": "university",
+              "scale":{
+                "domain": [
+                  "Australian National University",
+                  "Monash University",
+                  "University of Adelaide",
+                  "University of Melbourne",
+                  "University of Queensland",
+                  "University of Sydney",
+                  "University of Western Australia",
+                  "UNSW Sydney"
+              ],
+              "range": [
+                  "#FFD700",
+                  "#006DAE",
+                  "red",
+                  "#00A36C",
+                  "#800080",
+                  "#ff6600",
+                  "#f25278",
+                  "black"
+              ]
+            }
             
+            },
         "tooltip": [{
+        "field": "university",
+        "type": "nominal",
+        "title": "University"
+        },{
             "field": "aud",
             "type": "quantitative",
             "title": "Annual Fees AUD",
             "format": ","
-        }],
+        }
+      ],
             "opacity": {"value": 1}
+
           }
         }
       ]

@@ -1,95 +1,90 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width":400,
-    "height": 200,
-    "title":{
-        "text": "Student Experience Per Institution",
-        "align": "center",
-        "fontSize": 17 
-    },
+    "width":350,
+    "height": 250,
     "data": {"url":"data/studentexp.csv"},
+    "selection":{
+        "highlight": {"type": "single", "empty": "none", "on": "mouseover"},
+        "select": {"type": "multi"}
+    },
     "params": [
         {
-            "name": "uni_select", "value": "All Universities",
+            "name": "uni_select", "value": "Entire experience",
             "bind": {
                 "input": "select",
                 "options":[
-                    "All Universities",
-                    "The Australian National University",
-                    "Monash University",
-                    "The University of Adelaide",
-                    "The University of Melbourne",
-                    "The University of Queensland",
-                    "The University of Sydney",
-                    "The University of Western Australia",
-                    "University of New South Wales"
-                ],
-                "labels": [
-                    "Show All",
-                    "Australian National University",
-                    "Monash University",
-                    "University of Adelaide",
-                    "University of Melbourne",
-                    "University of Queensland",
-                    "University of Sydney",
-                    "University of Western Australia",
-                    "UNSW Sydney"
-                ],
-                "name": "University Selection    "
-            }
-        }
-    ],
-    "transform": [
-        {"filter": "datum.university == uni_select"}
-        
-    ],
-    "layer": [
-        {
-            "mark": {"type": "arc", "innerRadius": 0, "stroke": "white"}
-        },{
-            "mark": {"type": "text", "radiusOffset": 10},
-            "encoding": {
-                "text": {"field":"Positive Exp(%)", "type": "quantitative"}
-            }
-        }
-    ],
-    "encoding": {
-        "theta": {"field": "Positive Exp(%)", "type": "quantitative", "stack": true},
-        "radius": {"field": "Positive Exp(%)", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
-        "color": {
-            "field": "Sector", 
-            "type": "nominal", 
-            "legend":null,
-            "scale": {
-                "domain": [
+                    "Entire experience",
                     "Skills Development",
                     "Learner Engagement",
                     "Teaching Quality",
                     "Student Support",
-                    "Learning Resources",
-                    "Entire experience"
+                    "Learning Resources"
                 ],
-                "range": [
-                    "#097969",
-                    "#AFE1AF",
-                    "#008080",
-                    "#5F9EA0",
-                    "#2AAA8A",
-                    "#96DED1"
-                ]
-            }},
-        "tooltip": [
-            {
-                "field": "university", "type": "nominal", "title": "Institution"
-            },
-            {
-                "field": "Sector", "type": "nominal"
-            },
-            {
-                "field": "Positive Exp(%)", "type": "quantitative"
+                "labels": [
+                    "Entire experience",
+                    "Skills Development",
+                    "Learner Engagement",
+                    "Teaching Quality",
+                    "Student Support",
+                    "Learning Resources"
+                ],
+                "name": "Sector Selection  "
             }
-        ]
         }
-    }
+    ],
+    "transform": [
+        {"filter": "datum.Sector == uni_select"},
+        {
+            "window":[{"op":"rank", "as": "ranking"}],
+            "sort": [{"field": "Positive Exp(%)", "order": "descending"}]
+        }
+        
+    ],
+    "mark": {
+        "type":"bar",
+        "stroke": "black",
+        "cursor":"pointer"},
+    "encoding": {
+        "x": {
+            "field": "Positive Exp(%)", 
+            "type": "quantitative",
+            "scale":{"domain": [0,100]},
+            "title": "Positive Experience (%)",
+            "axis": {"grid": false}},
+        "y": {
+            "field": "university",
+            "scale": {
+                "paddingInner": 0.18
+            },
+            "title": "Institution"
+            },
+        "fillOpacity": {
+            "condition": {"param": "select", "value": 1},
+            "value":0.3
+        },
+        "strokeWidth":{
+            "condition":[
+                {
+                    "param": "select",
+                    "empty": false,
+                    "value": 2
+                },
+                {
+                    "param": "highlight",
+                    "empty": false,
+                    "value": 1
+                }
+            ],
+            "value":0
+        },
+        "color":{
+            "condition": {"test": "datum.ranking > 3", "value": "#E5E5E5"},
+            "value": "#5F9EA0"
+        },
+        "tooltip":[
+            {"field":"Positive Exp(%)", "type":"quantitative"}
+        ]
+        
 
-    
+    }
+}

@@ -1,59 +1,39 @@
 {   
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width":800,
+    "width":400,
     "height": 400,
-    "title": "Global Ranking of the Go8 Members",
     "data": {
         "url": "data/global_rank.csv"
     },    
-    "params": [
-        {
-        "name": "uni_select",
-        "bind": {
-            "input": "select",
-            "options":[
-                null,
-                "Australian National University",
-                "Monash University",
-                "University of Adelaide",
-                "University of Melbourne",
-                "University of Queensland",
-                "University of Sydney",
-                "University of Western Australia",
-                "UNSW Sydney"
-
-            ],
-            "labels": [
-                "Show All",
-                "Australian National University",
-                "Monash University",
-                "University of Adelaide",
-                "University of Melbourne",
-                "University of Queensland",
-                "University of Sydney",
-                "University of Western Australia",
-                "UNSW Sydney"
-
-            ],
-            "name": "University Selection"
-        }
+    "config": {
+        "style": {
+          "cell": {
+            "stroke": "transparent"
+          }
         },
+        "background":null
+      },
+    "params": [
+
         {
-            "name": "year_select", "value":2016,
+            "name": "year_select", "value": 2016,
             "bind": {"input": "range", "min": 2016, "max": 2022, "step": 1, "name": "Year"}
-        }    ],
+        }
+         ],
+
     "transform": [
-        {"filter": "datum.year > year_select"},
-        {"filter":"uni_select == null || datum.university == uni_select"}],
+        {"filter": "datum.year >= year_select"}],
     
     "encoding": {
         "x": {"field": "year", "type": "nominal"},
 
-        "y": {"field": "rank", "type": "quantitative", 
-        "axis": {"domain": false, "grid": false},
-        "scale": {
-            "domain": [130, 1]
-        }
+        "y": {
+            "field": "rank", 
+            "type": "quantitative", 
+            "axis": {"domain": false, "grid": false},
+            "scale": {
+                "domain": [130, 1]
+            }
         },
         "color": {
             "field": "university", "type": "nominal",
@@ -95,7 +75,33 @@
             ]
     },
     "layer": [
-        {"mark": {"type":"line", "size": 4, "opacity":0.6, "point": true}}
-    ]
+        {  
+            "mark": {"type": "line", "interpolate": "monotone"} ,
+              "encoding": {
+                "color": { "field": "university" },
+                "size":{
+                    "condition": {
+                        "param":"sel_uni_rank", "empty":false, "value": 5},
+                        "value": 2                        
+                    }
+                }
+              },
+        
+        {
+        "params":[
+            {
+                "name": "sel_uni_rank", "select": {"type": "point", "on": "click", "fields": ["university"]},
+                "bind": "legend"
+            } 
+        ],
+        "mark": {"type" :"tick", "thickness": 5 },
+        "encoding": {
+            "color": {
+                "condition":{"param": "sel_uni_rank", "empty": false, "value": "black"},
+                "field": "university"
+                }
 
+            }
+        }
+    ]
 }
