@@ -10,34 +10,163 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Noto+Sans:wght@500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/styles.css">
 
 
 </head>
+
 <body>
-    <h1>Australia for International Students</h1>
+
+        <div class="header">
+
+        <h1 class="title">
+            Should You Study In Australia?
+        </h1>
+        <p class="intro">
+            This visualisation explores Australia as a destination for students interested in pursuing their tertiary education abroad. <br>
+            We focus on the members of the Group Of 8 which consists of Australia's highest ranked and leading research-intensive universities.<br>
+            The Group of 8 educates more than 425,000 students, 160,000 of which are international students from around 200 countries. <br>
+            One in three international students enrol in an institution of the Group of 8. 
+            <br>
+            
+            
+        </p>
+        <br>
+    </div>
+
     
-    <div id="intstud_origin" style="display: block">
-    </div>
+    <div class="page">
 
-    <div id="intstud_dest", style = "display: block">
-    </div>
-    
-    <div id="intstud_donut">
+    <h3>Host Countries for International Students</h3>
+    <div id="intstud_dest">
     </div>
     
+    <p class="dest_text">
+        <span class="aus">Australia</span> is the <span class="aus">second largest</span> provider of education to international students, 
+        behind Luxembourg. It welcomes approximately <span class="aus">28%</span> of students who've decided to study abroad. Students 
+        choose to study in Australia for countless reasons. The <span class="ita">student visas are easily available</span>, the 
+        <span class="ita">universities are research-intensive</span> and may offer <span class="ita">internships or work opportunities</span> to students. 
+        The cost of living in Australia is also <span class="ita">lesser</span> than other popular destinations such as Canada and the United Kingdom. 
 
-    <div id="unifees_dot">
+
+
+    </p>
+
+
+
+    <h3>Top 15 International Students Origin Countries </h3>
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <div id="intstud_origin">
+            </div>
+        </div>
+
+        <div class="pure-u-1-2">
+            <p class="div_text">
+                The countries that send the most students to Australia are all located in Asia. <span class="china">China</span> is the largest
+                contributor to the international student population, with <span class="china">37%</span> or <span class="china">1,600,000</span> international 
+                students originating from there. 
+                The second largest contributor is <span class="india">India</span>, where nearly <span class="india">20%</span> or <span class="india">886,000</span> 
+                students originate. <br>
+                <br>
+                Australia is home different cultures, which allows international students to feel more at home 
+                in a foreign country. Many australian institutions have cultural events to celebrate and appreciate the different cultures 
+                their students are from. 
+
+
+            </p>
+        </div>
+    </div>        
+
+    <h3>Proportion of International Students</h3>
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <div id="intstud_ratio">
+            </div>
+        </div>
+
+        <div class="pure-u-1-2">
+            <p class="div_text">
+                International students make up more than <span class="twenty">20%</span> of the student population in the members of Group of 8. 
+                <span class="monash">Monash University</span> houses <span class="monash">22,140</span> international students which makes up nearly <span class="monash">34% </span>
+                of their student population. 
+            </p>
+        </div>
     </div>
 
-    <div id="globalrank_bump">
+
+    <h3>Fees Per Annum Of The Group of 8 Universities</h3>
+    <div class="pure-g">            
+        <div class="pure-u-1-2">
+            <div class="fees_text">
+            <p>
+                <span class="sydneyuni">University of Sydney</span> has the highest annual fees out of the members of the Group of 8 ranging from <span class="sydneyuni">$50,000</span> to
+                <span class="sydneyuni">$54,000</span>. Fortunately, the Australian government has offered to provide scholarships to international students 
+                from across <span class="sydneyuni">55 countries</span>. The institutions themselves also provide scholarship programs to international
+                students.  
+
+
+            </p>
+            </div>
+        </div>
+
+        <div class="pure-u-1-2">
+            <div id="unifees">
+            </div>
+        </div>
+
+    </div>
+    
+
+    <h3>Global Ranking Of The Group Of 8 Universities</h3>
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <div class="fees_text">
+            <p>
+                On the right are the rankings of the members of the Group of 8 based on the QS World University Rankings. 
+                <span class="seven">7 of the 8 members</span> of the Group of 8 are in the <span class="seven">top 100</span> in the world and 
+                <span class="all">all</span> the members are in the <span class="all">top 150</span> in the world.
+                <br>
+                <br>
+                Australian universities also rank among the world's <span class="fifty">top 50</span> in various study areas such as: 
+                <li>Art and humanities</li>
+                <li>Engineering and technology</li>
+                <li>Physical science</li>
+                <li>Social sciences</li> 
+                <li>Clinical and health category</li>
+
+            </p>
+        </div>
     </div>
 
-    <div id="studentexp_radial">
+
+        <div class="pure-u-1-2">
+            <div id="globalrank">
+            </div>
+        </div>
+    </div>
+
+    <h3>Student Experience By Institution</h3>
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <div id="studentexp">
+            </div>
+        </div>
+        <div class="pure-u-1-2">
+            <div class="div_text_exp">
+            <p>
+                Student's positive experiences by percentage of different sectors are shown on the left. Overall, students have the best experience in 
+                <span class="sydneyuni">UNSW Sydney</span>, <span class="queen">University of Queensland</span> and <span class="uwa">University of Western Australia</span>.
+            </p>
+        </div>
+        </div>
     </div>
 
 
-
+    </div>
 
     <script>
         var spec1 = "js/intstud_origin.vg.json";
@@ -55,28 +184,28 @@
 
     <script>
         var spec1 = "js/ratio_intstud.vg.json";
-        vegaEmbed('#intstud_donut', spec1).then(function(result) {
+        vegaEmbed('#intstud_ratio', spec1).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     </script>
 
     <script>
         var spec1 = "js/unifees.vg.json";
-        vegaEmbed('#unifees_dot', spec1).then(function(result) {
+        vegaEmbed('#unifees', spec1).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     </script>
 
     <script>
         var spec1 = "js/globalrank.vg.json";
-        vegaEmbed('#globalrank_bump', spec1).then(function(result) {
+        vegaEmbed('#globalrank', spec1).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     </script>
 
 <script>
     var spec1 = "js/studentexp.vg.json";
-    vegaEmbed('#studentexp_radial', spec1).then(function(result) {
+    vegaEmbed('#studentexp', spec1).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 </script>
